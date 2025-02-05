@@ -11,6 +11,7 @@
     <header>
       <div class="header-container">
         <p class="text-1">Список дел</p>
+        <button class="task-add" id="add-button"></button>
         <section class="menu-right">
           <section class="weather">
             <p class="weather-text" id="temp"></p>
@@ -25,26 +26,151 @@
     </header>
     <main>
       <div class="container">
-        <div class="card">
-          <p class="task-title">Название</p>
-          <p class="task-desc">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
-            quidem quisquam quos esse iusto delectus porro eum tempora nisi,
-            quibusdam aspernatur odit voluptate facilis, earum fugiat. Tempora
-            temporibus eaque sit!
-          </p>
-          <div class="task-tag">
-            <p class="task-tag-text">#писятдва</p>
-          </div>
-          <div class="card-bottom">
-            <button class="task-edit"></button>
-            <button class="task-delete"></button>
-            <div class="task-status">
-              <p class="task-status-text">Не выполнено</p>
+        <dialog class="add-task-window" id="add-task-dialog">
+          <div
+            role="add-task"
+            aria-labelledby="dialog-add"
+            aria-modal="true"
+            class="inside-window"
+          >
+            <p class="title-of-add-window">Добавление задачи</p>
+
+            <div class="get-information">
+              <form class="get-task-title-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите название дела:</p>
+                  <input type="text" class="input-text" id="get-task-title" />
+                </div>
+              </form>
+
+              <form class="get-task-description-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите описание дела:</p>
+                  <input
+                    type="text"
+                    class="input-text"
+                    id="get-task-description"
+                  />
+                </div>
+              </form>
+
+              <form class="get-task-deadline-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите дедлайн дела (YYYY-MM-DD):</p>
+                  <input
+                    type="text"
+                    class="input-text"
+                    id="get-task-deadline"
+                  />
+                </div>
+              </form>
+
+              <form class="get-task-tags-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите теги дела:</p>
+                  <input type="text" class="input-text" id="get-task-tags" />
+                </div>
+              </form>
+
+              <form class="get-task-deadline-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите статус дела:</p>
+                  <input type="text" class="input-text" id="get-task-status" />
+                </div>
+              </form>
             </div>
-            <p class="task-deadline">2025-01-15</p>
+
+            <div class="save-and-exit">
+              <button class="task-save" id="add-task-save-button">Save</button>
+              <button class="task-exit">Exit</button>
+            </div>
           </div>
-        </div>
+        </dialog>
+
+        <dialog class="add-task-window" id="edit-task-dialog">
+          <div
+            role="edit-task"
+            aria-labelledby="dialog-edit"
+            aria-modal="true"
+            class="inside-window"
+          >
+            <p class="title-of-add-window">Редактирование задачи</p>
+
+            <div class="get-information">
+              <form class="get-task-title-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите название дела:</p>
+                  <input type="text" class="input-text" id="edit-task-title" />
+                </div>
+              </form>
+
+              <form class="get-task-description-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите описание дела:</p>
+                  <input
+                    type="text"
+                    class="input-text"
+                    id="edit-task-description"
+                  />
+                </div>
+              </form>
+
+              <form class="get-task-deadline-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите дедлайн дела (YYYY-MM-DD):</p>
+                  <input
+                    type="text"
+                    class="input-text"
+                    id="edit-task-deadline"
+                  />
+                </div>
+              </form>
+
+              <form class="get-task-tags-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите теги дела:</p>
+                  <input type="text" class="input-text" id="edit-task-tags" />
+                </div>
+              </form>
+
+              <form class="get-task-deadline-form">
+                <div class="input-form">
+                  <p class="dialog-text">Введите статус дела:</p>
+                  <input type="text" class="input-text" id="edit-task-status" />
+                </div>
+              </form>
+            </div>
+
+            <div class="save-and-exit">
+              <button class="task-save" id="edit-task-save-button">Save</button>
+              <button class="task-exit">Exit</button>
+            </div>
+          </div>
+        </dialog>
+        <ul class="to-do-list" id="cards-list-ul">
+          <!-- <li>
+            <div class="card">
+              <p class="task-title">Название</p>
+              <p class="task-desc">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
+                quidem quisquam quos esse iusto delectus porro eum tempora nisi,
+                quibusdam aspernatur odit voluptate facilis, earum fugiat.
+                Tempora temporibus eaque sit!
+              </p>
+              <div class="task-tag">
+                <p class="task-tag-text">#писятдва</p>
+              </div>
+              <div class="card-bottom">
+                <button class="task-edit"></button>
+                <button class="task-delete"></button>
+                <div class="task-status">
+                  <p class="task-status-text">Не выполнено</p>
+                </div>
+                <p class="task-deadline">2025-01-15</p>
+              </div>
+            </div>
+          </li> -->
+        </ul>
       </div>
     </main>
   </body>
